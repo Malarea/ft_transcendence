@@ -1,0 +1,53 @@
+{
+    "play": "Play",
+    "settings": "Settings",
+    "authenticate": "Authenticate",
+    "logout": "Logout",
+    "language": "Language",
+    "back": "Back",
+    "english": "English",
+    "french": "French",
+    "spanish": "Spanish",
+    
+    "playMenu": {
+        "title": "Play",
+        "local": "Local",
+        "online": "Online",
+        "friends": "Friends"
+    },
+
+    "settingsMenu": {
+        "title": "Settings",
+        "account": "Account",
+        "language": "Language",
+        "audio": "Audio"
+    },
+
+    "audioMenu": {
+        "title": "Audio",
+        "ambientVolume": "Ambient volume",
+        "soundVolume": "Sound volume"
+    },
+
+    "authMenu": {
+        "title": "Authentication",
+        "signIn": "Log In",
+        "signUp": "Sign Up"
+    },
+
+    "logInMenu": {
+        "title": "Log In",
+        "username": "Username",
+        "password": "Password",
+        "submit": "Log In",
+        "or42": "42 intra"
+    },
+
+    "signUpMenu": {
+        "title": "Sign Up",
+        "username": "Username",
+        "password": "Password",
+        "confirmPassword": "Confirm password",
+        "submit": "Sign Up"
+    }
+}

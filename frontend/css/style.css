@@ -1,0 +1,257 @@
+
+
+@keyframes gradientAnimation{
+    0% { background-position: 0% 50%; }
+    50% { background-position: 70% 70%; }
+    100% { background-position: 50% 0%; }
+}
+
+@keyframes bounce{
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateX(5px);
+  }
+  60% {
+    transform: translateX(-10px);
+  }
+}
+
+@keyframes fadeOut{
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+  
+@keyframes fadeIn{
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.resizableMenu{
+  display: flex;
+  position: fixed; /* Position fixed to stay in place during scrolling and resizing */
+  top: 0;
+  left: 0;
+  width: 100vw; /* Use viewport width */
+  height: 100vh; /* Use viewport height */
+  z-index: 1000;
+}
+
+.bounce{
+  animation: bounce 0.5s;
+}
+
+.FadeIn{
+  animation: fadeIn 1s forwards;
+}
+
+.fadeOut{
+  animation: fadeOut 4s forwards;
+}
+
+.animationActive{
+  animation: gradientAnimation 20s ease infinite;
+}
+
+.hoverLambda{
+  transition: transform 0.02s ease, background-color 0.3s ease;
+}
+
+.hoverLambda:focus{
+  outline: none;
+}
+
+.hoverLambda:hover{
+  transform: scale(1.01);
+}
+
+.stealthButton{
+  border: none;
+  background: none;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+}
+
+.stealthButton:hover{
+  background-color: transparent; /* Keep background transparent for stealthButton */
+}
+
+.stealthButton:focus{
+  outline: none;
+}
+
+.menusTitle{
+  font-size: 6em;
+  width: auto;
+  color: white;
+  font-style: bold;
+}
+
+.inputLambda {
+  width: 15%;               /* augmenté de 15% à 30% */
+  height: 1vh;              /* augmenté à 5vh au lieu de 3% */
+  margin-top: 1vh;          /* augmenté pour plus d'espacement */
+  font-weight: bold;
+  text-align: center;
+  color: black;
+  font-size: 0.7em;         /* ajouté pour augmenter la taille du texte */
+  padding: 1vh;             /* ajouté pour un meilleur padding interne */
+}
+
+.buttonLambda {
+  display: inline-block;
+  font-size: 2em;
+  margin-top: 0.5vh;         /* augmenté pour plus d'espacement */
+  width: 30%;              /* réduit de 50% à 30% pour matcher les inputs */
+}
+
+.buttonLambda.selected {
+  border: 2px solid white;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+#fortytwoButton {
+  width: 15% !important;   /* gardé plus petit comme demandé dans ton HTML */
+  height: auto !important; /* ajusté automatiquement */
+  padding: 1vh;
+}
+
+.backButtons{
+  font-size: 1.5em;
+  margin-top: 3vw;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  height: 80vh;
+  background: linear-gradient(-25deg, #9f0d0d, #000000, #101455);
+  background-size: 400% 400%;
+}
+
+.spanish {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.4em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  letter-spacing: 2px;
+  color: #FF9B00; /* Une couleur orange chaleureuse */
+  background-color: #000000;
+  transition: text-shadow 0.3s;
+}
+
+#dynamicContent {
+  /* Garder les propriétés existantes */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 1vw;
+  margin: 15vh auto;
+  width: 57vw;
+  height: 70vh;
+  border: 2px solid #000000;
+  background-color: #000000;
+  position: relative;
+  overflow: hidden;
+}
+
+.scroll-container {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;           /* Ajouté */
+  flex-direction: column;  /* Ajouté */
+  align-items: center;     /* Ajouté */
+}
+
+/* Style pour la scrollbar */
+.scroll-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scroll-container::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+}
+
+.search-section {
+  width: 100%;
+  max-width: 500px;
+  margin: 20px 0;
+}
+
+.search-results {
+  margin-top: 10px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.search-result-item, .friend-item, .friend-request-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin: 5px 0;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+}
+
+.friend-avatar, .user-avatar {
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.friend-name, .user-name {
+  color: white;
+  flex-grow: 1;
+}
+
+.friend-status {
+  padding: 5px 10px;
+  margin: 0 10px;
+}
+
+.friend-status.online {
+  color: #4CAF50;
+}
+
+.friend-status.offline {
+  color: #f44336;
+}
+
+
+.invite-button, .add-friend-button, .accept-button, .reject-button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.friends-section, .friend-requests-section {
+  width: 100%;
+  max-width: 500px;
+  margin: 20px 0;
+}
+
+.friends-section h2, .friend-requests-section h2 {
+  color: white;
+  margin-bottom: 10px;
+}

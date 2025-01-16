@@ -1,0 +1,12 @@
+.audioMenu-Text{
+    font-size: 1em;
+    color:white;
+    font-style: bold;
+    margin-top: 1vh;
+}
+
+.audioMenu-VolumeSlider{
+    width: 30%;
+    range: 0, 100;
+    margin-top: 0.5vh;
+}

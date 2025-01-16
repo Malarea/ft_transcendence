@@ -1,0 +1,53 @@
+{
+    "play": "Jouer",
+    "settings": "Paramètres",
+    "authenticate": "S'authentifier",
+    "logout": "Déconnexion",
+    "language": "Langue",
+    "back": "Retour",
+    "english": "Anglais",
+    "french": "Français",
+    "spanish": "Espagnol",
+    
+    "playMenu": {
+        "title": "Jouer",
+        "local": "Local",
+        "online": "En ligne",
+        "friends": "Amis"
+    },
+
+    "settingsMenu": {
+        "title": "Paramètres",
+        "account": "Compte",
+        "language": "Langue",
+        "audio": "Audio"
+    },
+
+    "audioMenu": {
+        "title": "Audio",
+        "ambientVolume": "Volume ambiant",
+        "soundVolume": "Volume des effets"
+    },
+
+    "authMenu": {
+        "title": "Authentification",
+        "signIn": "Connexion",
+        "signUp": "Inscription"
+    },
+
+    "logInMenu": {
+        "title": "Connexion",
+        "username": "Nom d'utilisateur",
+        "password": "Mot de passe",
+        "submit": "Se connecter",
+        "or42": "42 intra"
+    },
+
+    "signUpMenu": {
+        "title": "Inscription",
+        "username": "Nom d'utilisateur",
+        "password": "Mot de passe",
+        "confirmPassword": "Confirmer le mot de passe",
+        "submit": "S'inscrire"
+    }
+}

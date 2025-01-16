@@ -1,0 +1,28 @@
+.accountMenu-upButton,
+.accountMenu-downButton {
+    width: 140px;
+    background-color: rgb(119, 119, 119);
+}
+.accountMenu-image {
+    max-width: 140px;
+    max-height: 140px;
+}
+
+.accountMenu-input{
+    width: 140px;
+    font-weight: bold;
+    text-align: center;
+    color: black;
+}
+
+.accountMenu-text{
+    color: white;
+    font-style: bold;
+    font-size: 1vh;
+}
+
+.accountMenu-uploadButton{
+    width: auto;
+    height: auto;
+    margin-top: 1vh;
+} 

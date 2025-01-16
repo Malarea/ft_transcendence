@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transcendance</title>
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/audioMenu.css">
+<link rel="stylesheet" href="css/settingsMenu.css">
+<link rel="stylesheet" href="css/localMenu.css">
+<link rel="stylesheet" href="css/languageMenu.css">
+<link rel="stylesheet" href="css/mainMenu.css">
+<link rel="stylesheet" href="css/accountMenu.css">
+<link rel="stylesheet" href="css/accountSettingsMenu.css">
+<link rel="stylesheet" href="css/historyMenu.css">
+<link rel="stylesheet" href="css/statsMenu.css">
+<link rel="stylesheet" href="css/onlineGame.css">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barrio&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+</head>
+</html>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.11/purify.min.js" crossorigin="anonymous"></script>
+    <script src = "/js/containers.js"> </script>
+    <script src = "/js/userStatus.js"></script>
+    <script src = "/js/onlineGame.js"> </script>
+    <script src = "/js/mainMenu.js"> </script>
+    <script src = "/js/auth.js"></script>
+    <script src = "/js/switchLanguage.js"> </script>
+    <script src = "/js/translationManager.js"></script>
+    <script src = "/js/authenticationMenu.js"> </script>
+    <script src = "/js/authenticationMenu/signInMenu.js"> </script>
+    <script src = "/js/authenticationMenu/signUpMenu.js"> </script>
+    <script src = "/js/settingsMenu/audioMenu.js"> </script>
+    <script src = "/js/settingsMenu.js"> </script>
+    <script src = "/js/settingsMenu/languageMenu.js"> </script>
+    <script src = "/js/settingsMenu/accountMenu.js"> </script>
+    <script src = "/js/playMenu.js"> </script>
+    <script src = "/js/playMenu/localMenu.js"> </script>
+    <script src = "/js/playMenu/onlineMenu.js"> </script>
+    <script src = "/js/playMenu/friendsMenu.js"> </script>
+
+    <audio id="backgroundAudio" loop>
+        <source src="audio/bgMusic.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="pongAudio">
+        <source src="audio/PONG.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="hoverSound">
+        <source src="audio/Hover.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="clickIn">
+        <source src="audio/lambdaButtonIn.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="clickOut">
+        <source src="audio/lambdaButtonOut.mp3" type="audio/mpeg">
+    </audio>
+    <div id="dynamicContent"></div>
+
+    <script>
+        function playAudio(audioId){
+            const audio = document.getElementById(audioId);
+            if (audio)
+                audio.play();
+        }
+        function switchAudio(audioId){
+            const audio = document.getElementById(audioId);
+            if (audio)
+                audio.muted ? audio.muted = false : audio.muted = true;
+        }
+
+        document.addEventListener('DOMContentLoaded', async () => {
+        // Vérifier si on revient d'une authentification OAuth 42
+        if (window.location.hash.startsWith('#auth=')) {
+            try {
+                const encoded = window.location.hash.substring(6);
+                const decoded = atob(encoded);
+                const authData = JSON.parse(decoded);
+
+                if (authData.isLoggedIn) {
+                    // Mettre à jour userStatusManager avant tout
+
+                    if (window.userStatusManager) {
+                        window.userStatusManager.user = authData;
+
+                    }
+                    
+                    // Connecter le WebSocket
+                    window.userStatusManager?.connect();
+                    
+                    // Déclencher l'événement avec les données complètes
+                    document.dispatchEvent(new CustomEvent('userLoggedIn', { 
+                        detail: authData 
+                    }));
+                    
+                    window.location.hash = '';
+                    mainMenu.show();
+                }
+            } catch (error) {
+                console.error('Error handling OAuth callback:', error);
+                authenticationMenu.show();
+            }
+        }
+    });
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+            window.userStatusManager = new UserStatusManager();
+        });
+
+        // Dans mainMenu.js ou similaire
+        if (document.referrer.includes('/auth/42/callback')) {
+            checkAuthStatus();  // Vérifie immédiatement l'état de connexion après redirection
+        }
+    </script>
+
+</body>
+</html>
+
